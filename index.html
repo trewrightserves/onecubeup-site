@@ -4,1284 +4,452 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>One Cube Up - Engineering Peak Performance with AI & Systems</title>
-    <meta name="description" content="We help leaders turn operational drag into decisive competitive advantage with systems engineering, AI literacy, and automations.">
+    <meta name="description" content="One Cube Up LLC - Systems Engineering, AI Integration, and Digital Transformation for Aerospace, Defense, and Commercial Industry. Faith-driven, minority-owned small business.">
     
-    <!-- Canonical -->
-<link rel="canonical" href="https://www.onecubeup.com/" />
-
-<!-- Favicon -->
-<link rel="icon" href="/assets/favicon.ico" />
-<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
-
-<!-- Open Graph -->
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://www.onecubeup.com/" />
-<meta property="og:title" content="One Cube Up — AI & Systems" />
-<meta property="og:description" content="7-day validation, AI literacy, and automations for leaders who value excellence and stewardship." />
-<meta property="og:image" content="https://www.onecubeup.com/assets/og-cover.jpg" />
-
-<!-- Google Analytics 4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-XXXXXXXXXX');
-</script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="One Cube Up - Engineering Peak Performance">
+    <meta property="og:description" content="Systems Engineering, AI Integration, and Digital Transformation Services">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://onecubeup.com">
     
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
-        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
-            font-family: 'Montserrat', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            overflow-x: hidden;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #0066ff 0%, #0047b3 100%);
+            color: white;
+            min-height: 100vh;
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        
+
         /* Header */
         header {
-            background: #0037FF;
-            color: white;
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
+            padding: 20px 0;
+            position: sticky;
             top: 0;
-            z-index: 1000;
+            background: rgba(0, 66, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-        
+
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
         }
-        
+
         .logo {
             display: flex;
             align-items: center;
-            gap: 10px;
-            font-size: 1.8rem;
-            font-weight: 700;
+            gap: 15px;
+            font-size: 28px;
+            font-weight: bold;
+            text-decoration: none;
             color: white;
         }
-        
-        .logo-icon {
-            width: 40px;
+
+        .logo-img {
             height: 40px;
-            background: #00D13A;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
+            width: auto;
         }
-        
-        .logo-icon::before {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            border: 2px solid white;
-            border-radius: 3px;
-            background: transparent;
-        }
-        
-        .logo-icon::after {
-            content: '';
-            position: absolute;
-            width: 8px;
-            height: 8px;
-            background: white;
-            border-radius: 50%;
-        }
-        
+
         .nav-links {
             display: flex;
-            list-style: none;
-            gap: 2rem;
+            gap: 30px;
+            align-items: center;
+            flex-wrap: wrap;
         }
-        
+
         .nav-links a {
             color: white;
             text-decoration: none;
-            transition: all 0.3s ease;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            font-weight: 600;
+            font-size: 18px;
+            font-weight: 500;
+            transition: opacity 0.3s;
         }
-        
+
         .nav-links a:hover {
-            background: rgba(255,255,255,0.1);
-            transform: translateY(-2px);
+            opacity: 0.8;
         }
-        
+
         .cta-button {
-            background: #00D13A;
-            color: white;
-            padding: 0.7rem 1.5rem;
+            background: #00ff66;
+            color: #0047b3;
+            padding: 12px 28px;
             border-radius: 25px;
+            font-weight: bold;
             text-decoration: none;
-            font-weight: 700;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 209, 58, 0.3);
+            display: inline-block;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
-        
+
         .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 209, 58, 0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 255, 102, 0.3);
         }
-        
+
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #0037FF 0%, #0028CC 100%);
-            color: white;
-            padding: 120px 0 80px;
+            padding: 80px 0;
             text-align: center;
-            position: relative;
-            overflow: hidden;
         }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" patternUnits="userSpaceOnUse" width="10" height="10"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
-            opacity: 0.3;
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
-        
-        .brand-quote {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #00D13A;
-            margin-bottom: 1rem;
-            animation: fadeInUp 1s ease;
-        }
-        
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-            animation: fadeInUp 1s ease 0.2s both;
-        }
-        
-        .hero-tagline {
-            font-size: 1.4rem;
-            margin-bottom: 2rem;
-            opacity: 0.95;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-            animation: fadeInUp 1s ease 0.4s both;
-        }
-        
-        /* Testimonial in Hero */
-        .hero-testimonial {
-            background: rgba(0, 209, 58, 0.15);
-            border-radius: 15px;
-            padding: 1.5rem;
-            margin: 2rem auto;
-            max-width: 700px;
-            border-left: 4px solid #00D13A;
-            animation: fadeInUp 1s ease 0.6s both;
-        }
-        
-        .hero-testimonial blockquote {
-            font-size: 1.3rem;
+
+        .tagline {
+            color: #00ff66;
+            font-size: 24px;
             font-style: italic;
-            margin-bottom: 1rem;
-            color: #f1f5f9;
+            margin-bottom: 30px;
         }
-        
-        .hero-testimonial cite {
-            font-size: 1rem;
-            color: #00D13A;
-            font-weight: 700;
+
+        h1 {
+            font-size: 56px;
+            margin-bottom: 30px;
+            line-height: 1.2;
         }
-        
-        .hero-cta {
-            display: inline-flex;
-            align-items: center;
-            gap: 1rem;
-            animation: fadeInUp 1s ease 0.8s both;
-            flex-wrap: wrap;
-            justify-content: center;
+
+        .subtitle {
+            font-size: 22px;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto 50px;
+            color: rgba(255,255,255,0.9);
         }
-        
-        .primary-cta {
-            background: #00D13A;
-            color: white;
-            padding: 1.2rem 2.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 6px 20px rgba(0, 209, 58, 0.4);
+
+        /* Testimonial */
+        .testimonial {
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 40px;
+            background: rgba(255,255,255,0.1);
+            border-left: 4px solid #00ff66;
+            border-radius: 10px;
         }
-        
-        .primary-cta:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0, 209, 58, 0.6);
+
+        .testimonial-quote {
+            font-size: 20px;
+            font-style: italic;
+            line-height: 1.6;
+            margin-bottom: 20px;
         }
-        
-        .secondary-cta {
-            color: white;
-            text-decoration: none;
-            font-size: 1.1rem;
-            border: 2px solid rgba(255,255,255,0.4);
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            transition: all 0.3s ease;
+
+        .testimonial-author {
+            color: #00ff66;
+            font-size: 16px;
             font-weight: 600;
         }
-        
-        .secondary-cta:hover {
+
+        /* CTA Buttons */
+        .cta-section {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .primary-btn {
+            background: #00ff66;
+            color: #0047b3;
+            padding: 18px 40px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 18px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+            border: 2px solid #00ff66;
+        }
+
+        .primary-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 255, 102, 0.4);
+        }
+
+        .secondary-btn {
+            background: transparent;
+            color: white;
+            padding: 18px 40px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 18px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+            border: 2px solid white;
+        }
+
+        .secondary-btn:hover {
             background: rgba(255,255,255,0.1);
-            border-color: rgba(255,255,255,0.8);
+            transform: translateY(-3px);
         }
-        
-        /* Value Props Section */
-        .value-props {
-            background: #f8fafc;
-            padding: 60px 0;
-        }
-        
-        .value-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            text-align: center;
-        }
-        
-        .value-item {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
-            border-top: 4px solid #00D13A;
-        }
-        
-        .value-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
-        }
-        
-        .value-icon {
-            font-size: 2.5rem;
-            color: #0037FF;
-            margin-bottom: 1rem;
-        }
-        
-        .value-title {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: #0037FF;
-            margin-bottom: 0.5rem;
-        }
-        
-        .value-description {
-            font-size: 1rem;
-            color: #666;
-        }
-        
+
         /* Services Section */
         .services {
             padding: 80px 0;
-            background: white;
+            background: rgba(0,0,0,0.2);
         }
-        
-        .section-header {
+
+        .section-title {
             text-align: center;
-            margin-bottom: 4rem;
+            font-size: 42px;
+            margin-bottom: 60px;
         }
-        
-        .section-header h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: #0037FF;
-            font-weight: 700;
-        }
-        
-        .section-header p {
-            font-size: 1.2rem;
-            color: #666;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        
+
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
         }
-        
+
         .service-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 2px solid #f0f0f0;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(90deg, #0037FF, #00D13A);
-        }
-        
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
-            border-color: #0037FF;
-        }
-        
-        .service-icon {
-            font-size: 3rem;
-            color: #0037FF;
-            margin-bottom: 1rem;
-        }
-        
-        .service-card h3 {
-            font-size: 1.6rem;
-            margin-bottom: 1rem;
-            color: #0037FF;
-            font-weight: 700;
-        }
-        
-        .service-card p {
-            color: #666;
-            margin-bottom: 1.5rem;
-        }
-        
-        .service-features {
-            list-style: none;
-            text-align: left;
-            margin-bottom: 2rem;
-        }
-        
-        .service-features li {
-            padding: 0.5rem 0;
-            color: #555;
-            position: relative;
-            padding-left: 1.5rem;
-        }
-        
-        .service-features li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: #00D13A;
-            font-weight: 700;
-        }
-        
-        .service-cta {
-            background: #0037FF;
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 700;
-            display: inline-block;
-            transition: all 0.3s ease;
-        }
-        
-        .service-cta:hover {
-            background: #00D13A;
-            transform: translateY(-2px);
-        }
-        
-        /* About Section */
-        .about {
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-            padding: 80px 0;
-        }
-        
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-        
-        .about-content h2 {
-            font-size: 2.5rem;
-            color: #0037FF;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-        
-        .about-content p {
-            color: #555;
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-        }
-        
-        .credentials {
-            background: white;
-            padding: 2rem;
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
             border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, background 0.3s;
+            border: 1px solid rgba(255,255,255,0.2);
         }
-        
-        .credentials h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            color: #0037FF;
-            font-weight: 700;
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.15);
         }
-        
-        .credentials-list {
-            list-style: none;
-            padding-left: 0;
+
+        .service-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
         }
-        
-        .credentials-list li {
-            padding: 0.7rem 0;
-            color: #666;
-            border-bottom: 1px solid #f0f0f0;
-            position: relative;
-            padding-left: 1.5rem;
+
+        .service-title {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #00ff66;
         }
-        
-        .credentials-list li::before {
-            content: '▶';
-            position: absolute;
-            left: 0;
-            color: #00D13A;
-            font-size: 0.8rem;
+
+        .service-description {
+            font-size: 16px;
+            line-height: 1.6;
+            color: rgba(255,255,255,0.9);
         }
-        
-        .credentials-list li:last-child {
-            border-bottom: none;
-        }
-        
-        /* Final CTA Section */
-        .final-cta {
-            background: linear-gradient(135deg, #0037FF 0%, #0028CC 100%);
-            color: white;
+
+        /* NAICS Section */
+        .naics-section {
             padding: 80px 0;
-            text-align: center;
         }
-        
-        .final-cta h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
+
+        .naics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
         }
-        
-        .final-cta p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            opacity: 0.95;
+
+        .naics-card {
+            background: rgba(255,255,255,0.1);
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 4px solid #00ff66;
         }
-        
-        .cta-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
+
+        .naics-code {
+            font-size: 24px;
+            font-weight: bold;
+            color: #00ff66;
+            margin-bottom: 10px;
         }
-        
+
+        .naics-description {
+            font-size: 16px;
+            line-height: 1.5;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .naics-tag {
+            display: inline-block;
+            background: rgba(0, 255, 102, 0.2);
+            color: #00ff66;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
         /* Footer */
         footer {
-            background: #0f172a;
-            color: white;
-            padding: 40px 0 20px;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-        
-        .footer-section h3 {
-            margin-bottom: 1rem;
-            color: #00D13A;
-            font-weight: 700;
-        }
-        
-        .footer-section a {
-            color: #cbd5e1;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        
-        .footer-section a:hover {
-            color: #00D13A;
-        }
-        
-        .footer-bottom {
+            padding: 60px 0 30px;
+            background: rgba(0,0,0,0.3);
             text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid #334155;
-            color: #94a3b8;
         }
-        
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto 30px;
         }
-        
-        .fade-in-up {
-            animation: fadeInUp 0.8s ease;
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin: 30px 0;
         }
-        
-        /* Mobile Responsiveness */
+
+        .contact-item {
+            font-size: 16px;
+        }
+
+        .contact-item a {
+            color: #00ff66;
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        .copyright {
+            font-size: 14px;
+            color: rgba(255,255,255,0.7);
+            margin-top: 30px;
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
+            h1 {
+                font-size: 36px;
+            }
+
+            .subtitle {
+                font-size: 18px;
+            }
+
             .nav-links {
-                display: none;
+                gap: 15px;
             }
-            
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero-cta {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
-            .about-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
+
             .services-grid {
                 grid-template-columns: 1fr;
             }
         }
-        
-        /* Modal Styles */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 2000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.7);
-        }
-        
-        .modal-content {
-            background-color: white;
-            margin: 3% auto;
-            padding: 3rem;
-            border-radius: 20px;
-            width: 90%;
-            max-width: 700px;
-            position: relative;
-            animation: fadeInUp 0.5s ease;
-            max-height: 90vh;
-            overflow-y: auto;
-        }
-        
-        .close {
-            position: absolute;
-            right: 20px;
-            top: 15px;
-            font-size: 2rem;
-            cursor: pointer;
-            color: #666;
-            font-weight: 700;
-        }
-        
-        .close:hover {
-            color: #0037FF;
-        }
-        
-        .modal h2 {
-            color: #0037FF;
-            margin-bottom: 1rem;
-            font-size: 2rem;
-            font-weight: 700;
-        }
-        
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 700;
-            color: #333;
-        }
-        
-        .form-group input, .form-group textarea, .form-group select {
-            width: 100%;
-            padding: 1rem;
-            border: 2px solid #e2e8f0;
-            border-radius: 10px;
-            font-size: 1rem;
-            font-family: 'Montserrat', sans-serif;
-            transition: border-color 0.3s ease;
-        }
-        
-        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
-            outline: none;
-            border-color: #0037FF;
-        }
-        
-        .submit-btn {
-            background: linear-gradient(90deg, #0037FF, #00D13A);
-            color: white;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            width: 100%;
-        }
-        
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 55, 255, 0.4);
-        }
-        
-        /* Pay-What-You-Want Styles */
-        .pricing-section {
-            background: #f8fafc;
-            padding: 20px;
-            border-radius: 15px;
-            margin: 20px 0;
-            border-left: 4px solid #00D13A;
-        }
-        
-        .price-toggle {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 20px;
-            align-items: center;
-        }
-        
-        .price-option {
-            flex: 1;
-            padding: 15px;
-            border: 2px solid #e2e8f0;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-        
-        .price-option.active {
-            border-color: #0037FF;
-            background: #eff6ff;
-        }
-        
-        .price-option h4 {
-            color: #0037FF;
-            margin-bottom: 5px;
-            font-weight: 700;
-        }
-        
-        .price-option .price {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #00D13A;
-        }
-        
-        .price-option .description {
-            font-size: 0.9rem;
-            color: #666;
-            margin-top: 5px;
-        }
-        
-        .invite-code-section {
-            display: none;
-            margin-top: 15px;
-        }
-        
-        .value-highlights {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 20px 0;
-        }
-        
-        .value-highlights h4 {
-            color: #0037FF;
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-        
-        .value-highlights ul {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .value-highlights li {
-            padding: 8px 0;
-            position: relative;
-            padding-left: 25px;
-            color: #555;
-        }
-        
-        .value-highlights li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: #00D13A;
-            font-weight: 700;
-        }
-        
-        .testimonial-highlight {
-            background: #eff6ff;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 20px 0;
-            border-left: 4px solid #0037FF;
-        }
-        
-        .testimonial-highlight blockquote {
-            font-style: italic;
-            color: #374151;
-            margin-bottom: 10px;
-        }
-        
-        .testimonial-highlight cite {
-            color: #0037FF;
-            font-weight: 700;
-        }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
-        <nav class="container">
-            <div class="logo">
-                <div class="logo-icon"></div>
-                One Cube Up
-            </div>
-            <ul class="nav-links">
-                <li><a href="#framework">Framework</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <a href="https://tidycal.com/onecubeup?utm_source=site&utm_medium=nav&utm_campaign=book" class="cta-button">Book a Call</a>
-        </nav>
+        <div class="container">
+            <nav>
+                <a href="/" class="logo">
+                    <img src="/assets/logo-onecubeup.svg" alt="One Cube Up Logo" class="logo-img">
+                    <span>One Cube Up</span>
+                </a>
+                <div class="nav-links">
+                    <a href="/framework.html">Framework</a>
+                    <a href="#services">Services</a>
+                    <a href="#naics">Capabilities</a>
+                    <a href="#contact">Contact</a>
+                    <a href="https://calendly.com/treonecubeup" class="cta-button" target="_blank">Book a Call</a>
+                </div>
+            </nav>
+        </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="brand-quote">"Freedom is close."</div>
+    <main>
+        <section class="hero">
+            <div class="container">
+                <p class="tagline">"Freedom is close."</p>
                 <h1>The Lean Prompting Framework</h1>
-                <p class="hero-tagline">Installing a new operating system for leadership thinking. Transform operational drag into decisive competitive advantage through systematic AI integration and process excellence.</p>
-                
-                <!-- Featured Testimonial -->
-                <div class="hero-testimonial">
-                    <blockquote>"Understanding AI right now is similar to understanding the internet when it first came out — those
-                        who embrace it early will have a clear advantage. Tré helped us get ahead."</blockquote>
-                    <cite>— Travis Harrison, Experience & Marketing Specialist, AO Tourism</cite>
-                </div>
-                
-                <div class="hero-cta">
-                    <a href="https://tidycal.com/onecubeup/aistrategy?utm_source=site&utm_medium=hero&utm_campaign=ai_strategy" class="primary-cta">Book Your A.I. Strategy Call</a>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSctKHA2NOCfEaxqwzAHuBwBY63ooQ1o8Ve6xXcYjYLVC4NTNw/viewform?utm_source=site&utm_medium=hero&utm_campaign=speaking" class="secondary-cta">Invite Me to Speak</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Value Props Section -->
-    <section class="value-props">
-        <div class="container">
-            <div class="value-grid">
-                <div class="value-item">
-                    <div class="value-icon">
-                        <i class="fas fa-cogs"></i>
-                    </div>
-                    <div class="value-title">Systematic Excellence</div>
-                    <div class="value-description">Lean Six Sigma mindset meets AI automation for measurable, repeatable results</div>
-                </div>
-                <div class="value-item">
-                    <div class="value-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <div class="value-title">Tangible ROI</div>
-                    <div class="value-description">Measurable time savings and efficiency gains that create undeniable value</div>
-                </div>
-                <div class="value-item">
-                    <div class="value-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <div class="value-title">Defense-Grade Expertise</div>
-                    <div class="value-description">10+ years aerospace & defense experience in secure, compliant environments</div>
-                </div>
-                <div class="value-item">
-                    <div class="value-icon">
-                        <i class="fas fa-hands-helping"></i>
-                    </div>
-                    <div class="value-title">Servant Leadership</div>
-                    <div class="value-description">Faith-driven approach that aligns systems with higher purpose and values</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="services">
-        <div class="container">
-            <div class="section-header">
-                <h2>Complete AI Transformation Services</h2>
-                <p>From individual framework mastery to enterprise-wide implementation</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <h3>Academy</h3>
-                    <p>Leadership and AI literacy programs built on the Lean Prompting Framework, empowering teams to think systematically and automate ethically.</p>
-                    <ul class="service-features">
-                        <li>Lean Prompting Framework Course</li>
-                        <li>AI for Leaders Mastermind</li>
-                        <li>Executive AI strategy workshops</li>
-                        <li>Team training & certification</li>
-                    </ul>
-                    <a href="https://tidycal.com/onecubeup?utm_source=site&utm_medium=services&utm_campaign=academy" class="service-cta">Start Learning</a>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <h3>A.I. Solutions</h3>
-                    <p>Custom-built AI assistants and agents tailored to specific workflows, freeing leaders to focus on innovation and service.</p>
-                    <ul class="service-features">
-                        <li>Custom AI assistants development</li>
-                        <li>Workflow automation design</li>
-                        <li>Integration with existing systems</li>
-                        <li>Ongoing optimization support</li>
-                    </ul>
-                    <a href="mailto:tre@onecubeup.com" class="service-cta">Request Consultation</a>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-project-diagram"></i>
-                    </div>
-                    <h3>Automations</h3>
-                    <p>End-to-end process automation that eliminates bottlenecks and accelerates decision-making across your organization.</p>
-                    <ul class="service-features">
-                        <li>Client Journey Automation (CRM/email/tasks)</li>
-                        <li>Decision Intelligence Automation (dashboards)</li>
-                        <li>Operational Efficiency Automation (workflows)</li>
-                        <li>Custom integration solutions</li>
-                    </ul>
-                    <a href="https://tidycal.com/onecubeup?utm_source=site&utm_medium=services&utm_campaign=automations" class="service-cta">Get Started</a>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-briefcase"></i>
-                    </div>
-                    <h3>Consulting</h3>
-                    <p>Design and implement AI-driven systems and processes that increase efficiency, accuracy, and revenue for your organization.</p>
-                    <ul class="service-features">
-                        <li>Digital transformation strategy</li>
-                        <li>MES/ERP/PLM integration</li>
-                        <li>Process improvement events</li>
-                        <li>Change management & training</li>
-                    </ul>
-                    <a href="https://tidycal.com/onecubeup?utm_source=site&utm_medium=services&utm_campaign=consulting" class="service-cta">Book Strategy Call</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="about-grid">
-                <div class="about-content">
-                    <h2>Tré Wright, MBA</h2>
-                    <p>Faith-driven systems engineer and AI consultant with 10+ years of experience in aerospace, defense, and manufacturing. Proven track record in designing and integrating complex systems, leading digital transformation initiatives, and developing innovative frameworks.</p>
-                    <p>Founder of One Cube Up, dedicated to engineering peak performance for organizations by combining strategic vision with hands-on technical expertise.</p>
-                    <p><strong>Mission:</strong> To connect communities and corporations with innovative solutions that fuel positive humanitarian and economic impact.</p>
-                </div>
-                <div class="credentials">
-                    <h3>Credentials & Experience</h3>
-                    <ul class="credentials-list">
-                        <li><strong>MBA</strong> - Louisiana State University at Shreveport</li>
-                        <li><strong>B.S. Aerospace Engineering</strong> - Auburn University</li>
-                        <li><strong>MES Manager</strong> - Hyundai MOBIS North America</li>
-                        <li><strong>Systems Integration Analyst</strong> - Lockheed Martin</li>
-                        <li><strong>Systems & Quality Engineer</strong> - Lockheed Martin & Pratt & Whitney</li>
-                        <li><strong>Lean Six Sigma Green Belt</strong></li>
-                        <li><strong>AWS Certified Cloud Practitioner</strong></li>
-                        <li><strong>Maxwell Leadership Certified</strong> - Speaker, Trainer & Coach</li>
-                        <li><strong>Secret Level Security Clearance</strong></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Final CTA Section -->
-    <section class="final-cta">
-        <div class="container">
-            <h2>Ready to Engineer Your Organization's Peak Performance?</h2>
-            <p>Join manufacturing leaders who've transformed operational drag into competitive advantage with the Lean Prompting Framework</p>
-            <div class="cta-buttons">
-                <a href="https://tidycal.com/onecubeup/aistrategy?utm_source=site&utm_medium=finalcta&utm_campaign=ai_strategy" class="primary-cta">Get Started with A.I.</a>
-                <a href="mailto:tre@onecubeup.com" class="secondary-cta">Email Tré Directly</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer id="contact">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>One Cube Up LLC</h3>
-                    <p>Engineering peak performance for businesses and their leaders through systematic AI integration and process excellence.</p>
-                    <p style="margin-top: 1rem;"><strong>Tré Wright, MBA</strong><br>
-                    Founder & Principal Consultant<br>
-                    Email: <a href="mailto:info@onecubeup.com">info@onecubeup.com</a><br>
-                    <!--Phone: <a href="tel:334-530-1981">(334) 530-1981</a><br>-->
-                    LinkedIn: <a href="https://www.linkedin.com/in/trewrightserves/">linkedin.com/in/trewrightserves</a></p>
-                </div>
-                <div class="footer-section">
-                    <h3>Academy</h3>
-                    <ul style="list-style: none;">
-                        <li><a href="#" onclick="openCourseModal()">Lean Prompting Framework</a></li>
-                        <li><a href="#">AI for Leaders Mastermind</a></li>
-                        <li><a href="#">Executive Workshops</a></li>
-                        <li><a href="#">Team Training</a></li>
-                        <li><a href="#">Certification Programs</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Services</h3>
-                    <ul style="list-style: none;">
-                        <li><a href="#">Strategic Consulting</a></li>
-                        <li><a href="#">A.I. Solutions</a></li>
-                        <li><a href="#">Process Automation</a></li>
-                        <li><a href="#">Digital Transformation</a></li>
-                        <li><a href="#">MES Integration</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; <span id="year"></span> One Cube Up LLC - All Rights Reserved. |
-                    <a href="https://www.onecubeup.com/privacy.pdf" target="_blank" rel="noopener">Privacy Policy</a> |
-                    <a href="https://www.onecubeup.com/terms.pdf" target="_blank" rel="noopener">Terms of Service</a>
-                 </p>
-                 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>                 
-            </div>
-        </div>
-    </footer>
-
-    <!-- Course Purchase Modal with Heights Integration -->
-    <div id="courseModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeCourseModal()">&times;</span>
-            <h2>The Lean Prompting Framework</h2>
-            <p>The complete system manufacturing leaders use to automate operations, eliminate reporting bottlenecks, and reclaim 10+ hours per week.</p>
-            
-            <!-- Testimonial in Modal -->
-            <div class="testimonial-highlight">
-                <blockquote>"Tré is a servant-leader who combines technical expertise with genuine care for people. His ability to
-                    solve complex problems and build consensus is unmatched."</blockquote>
-                <cite>— Shane Nicholson, Warfighting Specialist, United States Air Force</cite>
-            </div>
-            
-            <!-- Value Highlights -->
-            <div class="value-highlights">
-                <h4>What You Get:</h4>
-                <ul>
-                    <li><strong>Complete Framework Course:</strong> 6 modules covering systematic AI implementation</li>
-                    <li><strong>50+ Manufacturing Prompts:</strong> Ready-to-use templates for MES, ERP, and operational tasks</li>
-                    <li><strong>ROI Tracking System:</strong> Measure and optimize your time savings and efficiency gains</li>
-                    <li><strong>Implementation Roadmap:</strong> Step-by-step 30-day deployment guide</li>
-                    <li><strong>Private Community:</strong> Exclusive access to manufacturing leaders network</li>
-                    <li><strong>Compliance Templates:</strong> ITAR-ready prompts for secure environments</li>
-                    <li><strong>7-Day Email Sequence:</strong> Guided onboarding and quick wins</li>
-                </ul>
-            </div>
-            
-            <!-- Pay-What-You-Want Pricing -->
-            <div class="pricing-section">
-                <h4 style="color: #0037FF; margin-bottom: 15px;">Choose Your Investment Level:</h4>
-                
-                <div class="price-toggle">
-                    <div class="price-option active" id="executiveOption" onclick="selectPricing('executive')">
-                        <h4>Executive Access</h4>
-                        <div class="price">$47</div>
-                        <div class="description">Full commercial license</div>
-                    </div>
-                    <div class="price-option" id="inviteOption" onclick="selectPricing('invite')">
-                        <h4>Partner Access</h4>
-                        <div class="price">$3</div>
-                        <div class="description">Invite code required</div>
-                    </div>
-                </div>
-                
-                <div class="invite-code-section" id="inviteCodeSection">
-                    <label for="inviteCode" style="font-weight: 700; margin-bottom: 10px; display: block;">Enter Your Invitation Code:</label>
-                    <input type="text" id="inviteCode" name="inviteCode" placeholder="Enter invitation code" style="width: 100%; padding: 10px; border: 2px solid #e2e8f0; border-radius: 5px; font-family: 'Montserrat', sans-serif;">
-                    <p style="font-size: 0.9rem; color: #666; margin-top: 5px;">This special pricing is available through partner referrals and chamber collaborations.</p>
-                </div>
-            </div>
-            
-            <form id="courseForm">
-                <div class="form-group">
-                    <label for="course-name">Full Name *</label>
-                    <input type="text" id="course-name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="course-email">Work Email Address *</label>
-                    <input type="email" id="course-email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="course-title">Job Title *</label>
-                    <input type="text" id="course-title" name="title" placeholder="e.g., Operations Manager, Plant Director" required>
-                </div>
-                <div class="form-group">
-                    <label for="course-company">Company *</label>
-                    <input type="text" id="course-company" name="company" required>
-                </div>
-                <div class="form-group">
-                    <label for="course-industry">Industry *</label>
-                    <select id="course-industry" name="industry" required>
-                        <option value="">Select Industry</option>
-                        <option value="aerospace-defense">Aerospace & Defense</option>
-                        <option value="automotive">Automotive</option>
-                        <option value="electronics">Electronics</option>
-                        <option value="medical-devices">Medical Devices</option>
-                        <option value="general-manufacturing">General Manufacturing</option>
-                        <option value="other">Other</option>
-                    </select>
-                </div>
-                
-                <!-- Hidden fields for tracking -->
-                <input type="hidden" id="pricingTier" name="pricingTier" value="executive">
-                <input type="hidden" id="paymentAmount" name="paymentAmount" value="47">
-                <input type="hidden" id="cohortTracking" name="cohortTracking" value="executive-47">
-                
-                <button type="submit" class="submit-btn" id="purchaseBtn">Continue to Heights Platform - $47</button>
-            </form>
-            
-            <div style="text-align: center; margin-top: 20px;">
-                <p style="font-size: 0.9rem; color: #666;">
-                    <i class="fas fa-lock" style="margin-right: 5px;"></i>
-                    Secure checkout • 30-day money-back guarantee • Instant access
+                <p class="subtitle">
+                    Installing a new operating system for leadership thinking. Transform operational drag into 
+                    decisive competitive advantage through systematic AI integration and process excellence.
                 </p>
+
+                <div class="testimonial">
+                    <p class="testimonial-quote">
+                        "Understanding AI right now is similar to understanding the internet when it first came out — 
+                        those who embrace it early will have a clear advantage. Tré helped us get ahead."
+                    </p>
+                    <p class="testimonial-author">— Travis Harrison, Experience & Marketing Specialist, AO Tourism</p>
+                </div>
+
+                <div class="cta-section">
+                    <a href="https://calendly.com/treonecubeup" class="primary-btn" target="_blank">Book Your A.I. Strategy Call</a>
+                    <a href="/framework.html" class="secondary-btn">Explore the Framework</a>
+                </div>
             </div>
-        </div>
-    </div>
+        </section>
 
-    <script>
-        // Heights Platform Integration URLs
-        const HEIGHTS_URLS = {
-            executive: 'https://your-heights-domain.com/lean-prompting-framework',
-            invite: 'https://your-heights-domain.com/lean-prompting-framework?coupon='
-        };
+        <section id="services" class="services">
+            <div class="container">
+                <h2 class="section-title">Core Capabilities</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">🤖</div>
+                        <h3 class="service-title">AI & Machine Learning Integration</h3>
+                        <p class="service-description">
+                            AI/ML strategy, implementation, and system embedding for DoD and aerospace applications. 
+                            Responsible AI frameworks, predictive maintenance, and custom AI copilots.
+                        </p>
+                    </div>
 
-        // Pricing selection functionality
-        function selectPricing(type) {
-            const executiveOption = document.getElementById('executiveOption');
-            const inviteOption = document.getElementById('inviteOption');
-            const inviteCodeSection = document.getElementById('inviteCodeSection');
-            const pricingTierInput = document.getElementById('pricingTier');
-            const paymentAmountInput = document.getElementById('paymentAmount');
-            const cohortTrackingInput = document.getElementById('cohortTracking');
-            const purchaseBtn = document.getElementById('purchaseBtn');
-            
-            // Reset active states
-            executiveOption.classList.remove('active');
-            inviteOption.classList.remove('active');
-            
-            if (type === 'executive') {
-                executiveOption.classList.add('active');
-                inviteCodeSection.style.display = 'none';
-                pricingTierInput.value = 'executive';
-                paymentAmountInput.value = '47';
-                cohortTrackingInput.value = 'executive-47';
-                purchaseBtn.textContent = 'Continue to Heights Platform - $47';
-            } else if (type === 'invite') {
-                inviteOption.classList.add('active');
-                inviteCodeSection.style.display = 'block';
-                pricingTierInput.value = 'invite';
-                paymentAmountInput.value = '3';
-                cohortTrackingInput.value = 'invite-3';
-                purchaseBtn.textContent = 'Continue to Heights Platform - $3';
-            }
-        }
+                    <div class="service-card">
+                        <div class="service-icon">⚙️</div>
+                        <h3 class="service-title">Systems Engineering</h3>
+                        <p class="service-description">
+                            Full lifecycle systems engineering from concept through sustainment. Model-Based Systems 
+                            Engineering (MBSE), requirements management, and multi-domain operations integration.
+                        </p>
+                    </div>
 
-        // Modal functionality
-        function openCourseModal() {
-            document.getElementById('courseModal').style.display = 'block';
-        }
+                    <div class="service-card">
+                        <div class="service-icon">☁️</div>
+                        <h3 class="service-title">Digital Transformation</h3>
+                        <p class="service-description">
+                            Cloud migration, enterprise system integration (ERP, MES, PLM), IoT/IIoT implementation, 
+                            and legacy system modernization with data analytics platforms.
+                        </p>
+                    </div>
 
-        function closeCourseModal() {
-            document.getElementById('courseModal').style.display = 'none';
-        }
+                    <div class="service-card">
+                        <div class="service-icon">📊</div>
+                        <h3 class="service-title">Quality Management & Process Optimization</h3>
+                        <p class="service-description">
+                            Lean Six Sigma consulting, ISO 9001/AS9100 compliance support, MES optimization, 
+                            and continuous improvement culture development.
+                        </p>
+                    </div>
 
-        // Close modal when clicking outside
-        window.onclick = function(event) {
-            const modal = document.getElementById('courseModal');
-            if (event.target == modal) {
-                modal.style.display = 'none';
-            }
-        }
+                    <div class="service-card">
+                        <div class="service-icon">🔒</div>
+                        <h3 class="service-title">Cybersecurity & Compliance</h3>
+                        <p class="service-description">
+                            NIST SP 800-171 and CMMC 2.0 compliance support, CUI handling procedures, 
+                            security architecture design, and secure software development lifecycle.
+                        </p>
+                    </div>
 
-        // Form submission with Heights Platform redirect
-        document.getElementById('courseForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(this);
-            const data = {};
-            for (let [key, value] of formData.entries()) {
-                data[key] = value;
-            }
-            
-            // Validate invite code if needed
-            if (data.pricingTier === 'invite') {
-                const inviteCode = document.getElementById('inviteCode').value.trim();
-                if (!inviteCode) {
-                    alert('Please enter your invitation code to access partner pricing.');
-                    return;
-                }
-                
-                if (inviteCode.length < 3) {
-                    alert('Please enter a valid invitation code.');
-                    return;
-                }
-                
-                data.inviteCode = inviteCode;
-            }
-            
-            // Prepare tracking data for your CRM
-            const trackingData = {
-                lead_source: 'lean_prompting_framework',
-                pricing_tier: data.pricingTier,
-                payment_amount: data.paymentAmount,
-                cohort: data.cohortTracking,
-                signup_date: new Date().toISOString(),
-                customer_data: data
-            };
-            
-            console.log('CRM Tracking Data:', trackingData);
-            
-            // TODO: Send tracking data to your CRM via webhook or API
-            // Example: fetch('YOUR_CRM_WEBHOOK_URL', { method: 'POST', body: JSON.stringify(trackingData) });
-            
-            // Redirect to Heights Platform with appropriate URL
-            let heightsUrl;
-            if (data.pricingTier === 'executive') {
-                heightsUrl = HEIGHTS_URLS.executive;
-            } else {
-                // Append coupon code to URL for invite pricing
-                heightsUrl = HEIGHTS_URLS.invite + encodeURIComponent(data.inviteCode);
-            }
-            
-            // Store customer data in sessionStorage for Heights to potentially access
-            sessionStorage.setItem('onecubeup_customer', JSON.stringify(data));
-            
-            // Redirect to Heights Platform
-            // UNCOMMENT WHEN READY TO GO LIVE:
-            // window.location.href = heightsUrl;
-            
-            // For demo purposes, show success message
-            alert(`Redirecting to Heights Platform...\n\nPricing Tier: ${data.cohortTracking}\nAmount: ${data.paymentAmount}\n\nYou will:\n1. Complete payment on Heights Platform\n2. Get instant course access\n3. Receive welcome email\n4. Enter 7-day onboarding sequence\n\nURL: ${heightsUrl}`);
-            
-            closeCourseModal();
-            this.reset();
-            selectPricing('executive');
-        });
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const href = this.getAttribute('href');
-                if (href === '#' || href.includes('onclick')) return;
-                
-                e.preventDefault();
-                const target = document.querySelector(href);
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in-up');
-                }
-            });
-        }, observerOptions);
-
-        // Observe elements for animation
-        document.addEventListener('DOMContentLoaded', function() {
-            const elementsToAnimate = document.querySelectorAll('.value-item, .service-card');
-            elementsToAnimate.forEach(el => observer.observe(el));
-            
-            // Initialize pricing selection
-            selectPricing('executive');
-        });
-    </script>
-</body>
-</html>
+                    <div class="service-card">
+                        <div class="service-icon">📈</div>
+                        <h3 class="service-title">Program Management</h3>
+                        <p class="service-description">
+                            PMO setup and operations, Integrated Master Schedule (IMS) development, 
+                            risk management, EVM, and cross-functional team leadership.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
