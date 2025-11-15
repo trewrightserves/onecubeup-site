@@ -1291,7 +1291,7 @@
                     <p style="margin-top:15px">Based on ${userData.company}'s current operations (${employeeCount} employees) and typical ROI from AI implementation in similar businesses, we estimate you could capture this value through strategic AI adoption.</p>
                 </div>
                 
-                ${generateSocialProof(score)}
+                ${generateScoreBasedInsights(score)}
                 
                 <div class="cta-box">
                     <div class="cta-content">
@@ -1341,47 +1341,106 @@
             embedDiv.appendChild(iframe);
         }
 
-        // Generate Social Proof Based on Score
-        function generateSocialProof(score) {
-            const testimonials = [
-                {
-                    text: "The audit identified $180K in waste we didn't even know existed. Implementation paid for itself in 3 months.",
-                    author: "David Chen",
-                    company: "Manufacturing Operations Director",
-                    scoreRange: [150, 400]
-                },
-                {
-                    text: "We were skeptical at first, but the ROI analysis was undeniable. Now we're saving 20+ hours per week on manual data entry.",
-                    author: "Sarah Martinez",
-                    company: "Professional Services Firm",
-                    scoreRange: [100, 300]
-                },
-                {
-                    text: "The systematic approach made AI implementation feel manageable instead of overwhelming. Highly recommend.",
-                    author: "Michael Thompson",
-                    company: "B2B Operations Manager",
-                    scoreRange: [75, 250]
-                }
-            ];
-            
-            const relevantTestimonials = testimonials.filter(t => 
-                score >= t.scoreRange[0] && score <= t.scoreRange[1]
-            ).slice(0, 2);
-            
-            if (relevantTestimonials.length === 0) return '';
-            
-            return `
-                <div class="social-proof">
-                    ${relevantTestimonials.map(t => `
-                        <div class="testimonial-card">
-                            <div class="testimonial-text">"${t.text}"</div>
-                            <div class="testimonial-author">${t.author}</div>
-                            <div class="testimonial-company">${t.company}</div>
-                        </div>
-                    `).join('')}
-                </div>
-            `;
-        }
+        // Generate Score-Based Implementation Insights
+function generateScoreBasedInsights(score) {
+    let insights = [];
+    
+    if (score < 75) {
+        // Low Priority - Optimization Focus
+        insights = [
+            {
+                title: "🎯 Quick Win: Process Documentation",
+                description: "Even efficient operations benefit from AI-powered knowledge management. Consider automated documentation systems to capture institutional knowledge and reduce onboarding time.",
+                impact: "15-20% faster onboarding for new team members"
+            },
+            {
+                title: "📊 Strategic Opportunity: Predictive Analytics",
+                description: "Your strong foundation makes you ideal for advanced analytics. Use AI to forecast trends, predict maintenance needs, or optimize resource allocation before issues arise.",
+                impact: "10-15% improvement in strategic decision-making"
+            },
+            {
+                title: "💡 Competitive Edge: Customer Intelligence",
+                description: "Leverage AI to analyze customer behavior patterns, personalize communications, and identify upsell opportunities your competitors are missing.",
+                impact: "$15K-25K in additional annual revenue per sales rep"
+            }
+        ];
+    } else if (score < 150) {
+        // Moderate Priority - Clear Opportunities
+        insights = [
+            {
+                title: "⚡ Quick Win: Email & Communication Automation",
+                description: "Start with automated email categorization, template-based responses for common inquiries, and smart routing. These deliver immediate ROI and build team confidence in AI tools.",
+                impact: "Save 5-10 hours per week per team member"
+            },
+            {
+                title: "🔄 High-Impact: Workflow Automation",
+                description: "Map your 3-5 most repetitive processes and implement AI-powered automation. Focus on data entry, report generation, and status updates first.",
+                impact: "Reduce process time by 40-60% within 90 days"
+            },
+            {
+                title: "📈 Revenue Opportunity: Sales Intelligence",
+                description: "Deploy AI to analyze call recordings, suggest next-best actions, and automatically update your CRM. This reallocates time from admin work to revenue generation.",
+                impact: "15-25% increase in sales productivity"
+            }
+        ];
+    } else if (score < 225) {
+        // High Priority - Significant ROI
+        insights = [
+            {
+                title: "🚀 Critical First Step: Process Mapping",
+                description: "Before implementing AI, map your current workflows to identify the highest-impact automation opportunities. Start with processes consuming 10+ hours weekly per employee.",
+                impact: "Ensures you tackle the right problems first"
+            },
+            {
+                title: "💰 Highest ROI: Data Integration & Automation",
+                description: "Your biggest wins will come from eliminating manual data movement between systems. Implement automated data extraction, validation, and synchronization across your tech stack.",
+                impact: "Reclaim 15-20 hours per week per employee"
+            },
+            {
+                title: "🎯 Strategic Priority: Quality & Consistency",
+                description: "With high error rates from manual processes, focus AI on quality control, automated validation, and standardized workflows. This prevents costly mistakes and improves customer satisfaction.",
+                impact: "Reduce error-related costs by 60-80%"
+            }
+        ];
+    } else {
+        // Critical Priority - Transformational Impact
+        insights = [
+            {
+                title: "🚨 Urgent: Quick Wins Build Momentum",
+                description: "Don't try to fix everything at once. Identify ONE process costing 20+ hours weekly and automate it completely within 30 days. Use this success to secure buy-in for larger initiatives.",
+                impact: "Prove ROI fast and build organizational confidence"
+            },
+            {
+                title: "🔥 Critical Focus: End-to-End Automation",
+                description: "Your operational drag is severe. Prioritize complete workflow automation for customer onboarding, order processing, or reporting. These transformations deliver 10x ROI within 6 months.",
+                impact: "Eliminate 30-40 hours of manual work per week"
+            },
+            {
+                title: "⚙️ Foundation: Intelligent Operations Platform",
+                description: "Consider implementing a centralized AI operations hub that manages routine tasks, provides real-time insights, and orchestrates your entire workflow. This is transformational, not incremental.",
+                impact: "$500K-800K+ in annual value through efficiency gains"
+            }
+        ];
+    }
+    
+    if (insights.length === 0) return '';
+    
+    return `
+        <div class="recommendation-card">
+            <h3>💡 Implementation Priorities for Your Score Range</h3>
+            <p style="margin-bottom: 20px; color: #666;">Based on your assessment, here are the highest-impact opportunities to consider:</p>
+            <div style="display: flex; flex-direction: column; gap: 20px;">
+                ${insights.map(insight => `
+                    <div style="padding: 20px; background: #f8f9fa; border-left: 4px solid var(--accent-green); border-radius: 8px;">
+                        <h4 style="color: var(--primary-blue); margin-bottom: 10px; font-size: 18px;">${insight.title}</h4>
+                        <p style="color: #333; margin-bottom: 10px; line-height: 1.6;">${insight.description}</p>
+                        <p style="color: var(--accent-green); font-weight: 600; font-size: 14px;">💰 Expected Impact: ${insight.impact}</p>
+                    </div>
+                `).join('')}
+            </div>
+        </div>
+    `;
+}
 
         // Share Results Function
         function shareResults() {
