@@ -774,7 +774,8 @@
             </div>
         </form>
         
-        <div id="results" class="results"></div>
+        <div id="results" class="results">
+            </div>
     </div>
     
     <script>
@@ -1319,27 +1320,6 @@
             resultsDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
 
-        // Function to dynamically load TidyCal embed
-        // *** TYPO FIX: Changed 'loadTTidyCal' to 'loadTidyCal' ***
-        // Note: This function is no longer called, but fixing it prevents future errors.
-        function loadTidyCal() {
-            const embedDiv = document.getElementById('tidycal-embed');
-            if (!embedDiv) return;
-            
-            const script = document.createElement('script');
-            script.src = 'https://tidycal.com/embed.js';
-            script.async = true;
-            
-            const iframe = document.createElement('div');
-            iframe.className = 'tidycal-embed';
-            iframe.setAttribute('data-path', 'onecubeup/ai-audit'); 
-            iframe.setAttribute('data-layout', 'inline');
-            iframe.setAttribute('data-style', 'modern');
-            
-            embedDiv.appendChild(script);
-            embedDiv.appendChild(iframe);
-        }
-
         // Generate Score-Based Implementation Insights
         function generateScoreBasedInsights(score) {
             let insights = [];
@@ -1426,7 +1406,7 @@
             
             return `
                 <div class="recommendation-card">
-                    <h3>💡 Implementation Priorities for Your Score Range</h3>
+                    <h4>💡 Implementation Priorities for Your Score Range</h4>
                     <p style="margin-bottom: 20px; color: #666;">Based on your assessment, here are the highest-impact opportunities to consider:</p>
                     <div style="display: flex; flex-direction: column; gap: 20px;">
                         ${insights.map(insight => `
@@ -1471,7 +1451,7 @@
             // !!! WEBHOOK URL IS NOW LIVE !!!
             const webhookURL = 'https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjYwNTY0MDYzMTA0MzM1MjZlNTUzMjUxMzQi_pc'; 
             
-            if (webhookURL === 'https://connect.pabbly.com/YOUR-WEBHOOK-URL-HERE') {
+            if (webhookURL === 'httpsB://connect.pabbly.com/YOUR-WEBHOOK-URL-HERE') {
                 console.warn('Webhook URL not set! Data will not be saved.');
                 return; // Don't try to send if the URL is the placeholder
             }
