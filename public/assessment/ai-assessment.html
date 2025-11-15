@@ -1298,7 +1298,8 @@
                         <h3>Ready to Unlock These Opportunities?</h3>
                         <p>Your AI agents are ready for deployment. Book your 1-on-1 AI Systems Audit ($497) with Tré Wright to get your detailed implementation roadmap.</p>
                         
-                        <div id="tidycal-embed" style="min-height: 850px; background: white; border-radius: 12px; margin-top: 20px;"></div>
+                        <div class="tidycal-embed" data-path="onecubeup/ai-audit" style="min-height: 850px; background: white; border-radius: 12px; margin-top: 20px;"></div>
+                        <script src="https://asset-tidycal.b-cdn.net/js/embed.js" async></script>
                         <div class="action-buttons" style="margin-top: 25px;">
                             <button onclick="window.print()" class="action-btn secondary-action">📄 Download Report</button>
                             <button onclick="shareResults()" class="action-btn secondary-action">📤 Share Results</button>
@@ -1314,15 +1315,14 @@
                 </div>
             `;
             
-            // Load the TidyCal Embed
-            loadTidyCal();
-            
             // Scroll to results
             resultsDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
 
         // Function to dynamically load TidyCal embed
-        function loadTTidyCal() {
+        // *** TYPO FIX: Changed 'loadTTidyCal' to 'loadTidyCal' ***
+        // Note: This function is no longer called, but fixing it prevents future errors.
+        function loadTidyCal() {
             const embedDiv = document.getElementById('tidycal-embed');
             if (!embedDiv) return;
             
@@ -1332,7 +1332,6 @@
             
             const iframe = document.createElement('div');
             iframe.className = 'tidycal-embed';
-            // !!! THIS IS YOUR FINAL LINK !!!
             iframe.setAttribute('data-path', 'onecubeup/ai-audit'); 
             iframe.setAttribute('data-layout', 'inline');
             iframe.setAttribute('data-style', 'modern');
@@ -1342,105 +1341,105 @@
         }
 
         // Generate Score-Based Implementation Insights
-function generateScoreBasedInsights(score) {
-    let insights = [];
-    
-    if (score < 75) {
-        // Low Priority - Optimization Focus
-        insights = [
-            {
-                title: "🎯 Quick Win: Process Documentation",
-                description: "Even efficient operations benefit from AI-powered knowledge management. Consider automated documentation systems to capture institutional knowledge and reduce onboarding time.",
-                impact: "15-20% faster onboarding for new team members"
-            },
-            {
-                title: "📊 Strategic Opportunity: Predictive Analytics",
-                description: "Your strong foundation makes you ideal for advanced analytics. Use AI to forecast trends, predict maintenance needs, or optimize resource allocation before issues arise.",
-                impact: "10-15% improvement in strategic decision-making"
-            },
-            {
-                title: "💡 Competitive Edge: Customer Intelligence",
-                description: "Leverage AI to analyze customer behavior patterns, personalize communications, and identify upsell opportunities your competitors are missing.",
-                impact: "$15K-25K in additional annual revenue per sales rep"
+        function generateScoreBasedInsights(score) {
+            let insights = [];
+            
+            if (score < 75) {
+                // Low Priority - Optimization Focus
+                insights = [
+                    {
+                        title: "🎯 Quick Win: Process Documentation",
+                        description: "Even efficient operations benefit from AI-powered knowledge management. Consider automated documentation systems to capture institutional knowledge and reduce onboarding time.",
+                        impact: "15-20% faster onboarding for new team members"
+                    },
+                    {
+                        title: "📊 Strategic Opportunity: Predictive Analytics",
+                        description: "Your strong foundation makes you ideal for advanced analytics. Use AI to forecast trends, predict maintenance needs, or optimize resource allocation before issues arise.",
+                        impact: "10-15% improvement in strategic decision-making"
+                    },
+                    {
+                        title: "💡 Competitive Edge: Customer Intelligence",
+                        description: "Leverage AI to analyze customer behavior patterns, personalize communications, and identify upsell opportunities your competitors are missing.",
+                        impact: "$15K-25K in additional annual revenue per sales rep"
+                    }
+                ];
+            } else if (score < 150) {
+                // Moderate Priority - Clear Opportunities
+                insights = [
+                    {
+                        title: "⚡ Quick Win: Email & Communication Automation",
+                        description: "Start with automated email categorization, template-based responses for common inquiries, and smart routing. These deliver immediate ROI and build team confidence in AI tools.",
+                        impact: "Save 5-10 hours per week per team member"
+                    },
+                    {
+                        title: "🔄 High-Impact: Workflow Automation",
+                        description: "Map your 3-5 most repetitive processes and implement AI-powered automation. Focus on data entry, report generation, and status updates first.",
+                        impact: "Reduce process time by 40-60% within 90 days"
+                    },
+                    {
+                        title: "📈 Revenue Opportunity: Sales Intelligence",
+                        description: "Deploy AI to analyze call recordings, suggest next-best actions, and automatically update your CRM. This reallocates time from admin work to revenue generation.",
+                        impact: "15-25% increase in sales productivity"
+                    }
+                ];
+            } else if (score < 225) {
+                // High Priority - Significant ROI
+                insights = [
+                    {
+                        title: "🚀 Critical First Step: Process Mapping",
+                        description: "Before implementing AI, map your current workflows to identify the highest-impact automation opportunities. Start with processes consuming 10+ hours weekly per employee.",
+                        impact: "Ensures you tackle the right problems first"
+                    },
+                    {
+                        title: "💰 Highest ROI: Data Integration & Automation",
+                        description: "Your biggest wins will come from eliminating manual data movement between systems. Implement automated data extraction, validation, and synchronization across your tech stack.",
+                        impact: "Reclaim 15-20 hours per week per employee"
+                    },
+                    {
+                        title: "🎯 Strategic Priority: Quality & Consistency",
+                        description: "With high error rates from manual processes, focus AI on quality control, automated validation, and standardized workflows. This prevents costly mistakes and improves customer satisfaction.",
+                        impact: "Reduce error-related costs by 60-80%"
+                    }
+                ];
+            } else {
+                // Critical Priority - Transformational Impact
+                insights = [
+                    {
+                        title: "🚨 Urgent: Quick Wins Build Momentum",
+                        description: "Don't try to fix everything at once. Identify ONE process costing 20+ hours weekly and automate it completely within 30 days. Use this success to secure buy-in for larger initiatives.",
+                        impact: "Prove ROI fast and build organizational confidence"
+                    },
+                    {
+                        title: "🔥 Critical Focus: End-to-End Automation",
+                        description: "Your operational drag is severe. Prioritize complete workflow automation for customer onboarding, order processing, or reporting. These transformations deliver 10x ROI within 6 months.",
+                        impact: "Eliminate 30-40 hours of manual work per week"
+                    },
+                    {
+                        title: "⚙️ Foundation: Intelligent Operations Platform",
+                        description: "Consider implementing a centralized AI operations hub that manages routine tasks, provides real-time insights, and orchestrates your entire workflow. This is transformational, not incremental.",
+                        impact: "$500K-800K+ in annual value through efficiency gains"
+                    }
+                ];
             }
-        ];
-    } else if (score < 150) {
-        // Moderate Priority - Clear Opportunities
-        insights = [
-            {
-                title: "⚡ Quick Win: Email & Communication Automation",
-                description: "Start with automated email categorization, template-based responses for common inquiries, and smart routing. These deliver immediate ROI and build team confidence in AI tools.",
-                impact: "Save 5-10 hours per week per team member"
-            },
-            {
-                title: "🔄 High-Impact: Workflow Automation",
-                description: "Map your 3-5 most repetitive processes and implement AI-powered automation. Focus on data entry, report generation, and status updates first.",
-                impact: "Reduce process time by 40-60% within 90 days"
-            },
-            {
-                title: "📈 Revenue Opportunity: Sales Intelligence",
-                description: "Deploy AI to analyze call recordings, suggest next-best actions, and automatically update your CRM. This reallocates time from admin work to revenue generation.",
-                impact: "15-25% increase in sales productivity"
-            }
-        ];
-    } else if (score < 225) {
-        // High Priority - Significant ROI
-        insights = [
-            {
-                title: "🚀 Critical First Step: Process Mapping",
-                description: "Before implementing AI, map your current workflows to identify the highest-impact automation opportunities. Start with processes consuming 10+ hours weekly per employee.",
-                impact: "Ensures you tackle the right problems first"
-            },
-            {
-                title: "💰 Highest ROI: Data Integration & Automation",
-                description: "Your biggest wins will come from eliminating manual data movement between systems. Implement automated data extraction, validation, and synchronization across your tech stack.",
-                impact: "Reclaim 15-20 hours per week per employee"
-            },
-            {
-                title: "🎯 Strategic Priority: Quality & Consistency",
-                description: "With high error rates from manual processes, focus AI on quality control, automated validation, and standardized workflows. This prevents costly mistakes and improves customer satisfaction.",
-                impact: "Reduce error-related costs by 60-80%"
-            }
-        ];
-    } else {
-        // Critical Priority - Transformational Impact
-        insights = [
-            {
-                title: "🚨 Urgent: Quick Wins Build Momentum",
-                description: "Don't try to fix everything at once. Identify ONE process costing 20+ hours weekly and automate it completely within 30 days. Use this success to secure buy-in for larger initiatives.",
-                impact: "Prove ROI fast and build organizational confidence"
-            },
-            {
-                title: "🔥 Critical Focus: End-to-End Automation",
-                description: "Your operational drag is severe. Prioritize complete workflow automation for customer onboarding, order processing, or reporting. These transformations deliver 10x ROI within 6 months.",
-                impact: "Eliminate 30-40 hours of manual work per week"
-            },
-            {
-                title: "⚙️ Foundation: Intelligent Operations Platform",
-                description: "Consider implementing a centralized AI operations hub that manages routine tasks, provides real-time insights, and orchestrates your entire workflow. This is transformational, not incremental.",
-                impact: "$500K-800K+ in annual value through efficiency gains"
-            }
-        ];
-    }
-    
-    if (insights.length === 0) return '';
-    
-    return `
-        <div class="recommendation-card">
-            <h3>💡 Implementation Priorities for Your Score Range</h3>
-            <p style="margin-bottom: 20px; color: #666;">Based on your assessment, here are the highest-impact opportunities to consider:</p>
-            <div style="display: flex; flex-direction: column; gap: 20px;">
-                ${insights.map(insight => `
-                    <div style="padding: 20px; background: #f8f9fa; border-left: 4px solid var(--accent-green); border-radius: 8px;">
-                        <h4 style="color: var(--primary-blue); margin-bottom: 10px; font-size: 18px;">${insight.title}</h4>
-                        <p style="color: #333; margin-bottom: 10px; line-height: 1.6;">${insight.description}</p>
-                        <p style="color: var(--accent-green); font-weight: 600; font-size: 14px;">💰 Expected Impact: ${insight.impact}</p>
+            
+            if (insights.length === 0) return '';
+            
+            return `
+                <div class="recommendation-card">
+                    <h3>💡 Implementation Priorities for Your Score Range</h3>
+                    <p style="margin-bottom: 20px; color: #666;">Based on your assessment, here are the highest-impact opportunities to consider:</p>
+                    <div style="display: flex; flex-direction: column; gap: 20px;">
+                        ${insights.map(insight => `
+                            <div style="padding: 20px; background: #f8f9fa; border-left: 4px solid var(--accent-green); border-radius: 8px;">
+                                <h4 style="color: var(--primary-blue); margin-bottom: 10px; font-size: 18px;">${insight.title}</h4>
+                                <p style="color: #333; margin-bottom: 10px; line-height: 1.6;">${insight.description}</p>
+                                <p style="color: var(--accent-green); font-weight: 600; font-size: 14px;">💰 Expected Impact: ${insight.impact}</p>
+                            </div>
+                        `).join('')}
                     </div>
-                `).join('')}
-            </div>
-        </div>
-    `;
-}
+                </div>
+            `;
+        }
 
         // Share Results Function
         function shareResults() {
