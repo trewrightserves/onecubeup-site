@@ -880,6 +880,13 @@
                 }
             ],
             userInfo: [
+                { 
+                    id: 'revenue', 
+                    type: 'select', 
+                    label: 'Annual Business Revenue Range:', 
+                    required: true,
+                    options: ['< $500K', '$500K - $1M', '$1M - $5M', '$5M - $10M', '$10M+']
+                },
                 { id: 'company', type: 'text', label: 'Company Name:', required: true },
                 { id: 'name', type: 'text', label: 'Your Name:', required: true },
                 { id: 'email', type: 'email', label: 'Email:', required: true },
@@ -914,13 +921,20 @@
             const container = document.getElementById('questionsContainer');
             let html = '';
             
-            // Group questions by category
+            // 1. RENDER COMPANY INFO FIRST (As requested)
+            html += '<div class="question-section"><h3>1. Company Profile & Context</h3>';
+            assessmentConfig.userInfo.forEach(field => {
+                html += renderUserField(field);
+            });
+            html += '</div>';
+            
+            // 2. RENDER OTHER CATEGORIES
             const categories = {
-                operations: '1. Business Operations',
-                content_strategy: '2. Content & Strategy',
-                quality: '3. Quality & Consistency',
-                communication: '4. Customer Communication',
-                reporting: '5. Reporting & Analysis'
+                operations: '2. Business Operations',
+                content_strategy: '3. Content & Strategy',
+                quality: '4. Quality & Consistency',
+                communication: '5. Customer Communication',
+                reporting: '6. Reporting & Analysis'
             };
             
             Object.keys(categories).forEach(category => {
@@ -936,13 +950,6 @@
                     html += '</div>';
                 }
             });
-            
-            // Add user information section
-            html += '<div class="question-section"><h3>6. Your Information</h3>';
-            assessmentConfig.userInfo.forEach(field => {
-                html += renderUserField(field);
-            });
-            html += '</div>';
             
             container.innerHTML = html;
             attachEventListeners();
@@ -1071,6 +1078,8 @@
         // Update Progress Bar
         function updateProgress() {
             const totalQuestions = assessmentConfig.questions.length;
+            // NOTE: With user info now first, questions aren't answered yet, so this works fine.
+            // We track progress based on RADIO questions selected.
             const answeredQuestions = Object.keys(assessmentState.selectedAnswers).length;
             const progress = (answeredQuestions / totalQuestions) * 100;
             
@@ -1165,6 +1174,20 @@
             const score = assessmentState.currentScore;
             const userData = assessmentState.userData;
             const employeeCount = userData.employees;
+            const revenue = userData.revenue;
+            
+            // Revenue Multiplier Logic
+            let revenueMultiplier = 1;
+            let revenueLabel = "Baseline";
+            
+            if (revenue === '< $500K') { revenueMultiplier = 0.5; }
+            else if (revenue === '$500K - $1M') { revenueMultiplier = 1.0; }
+            else if (revenue === '$1M - $5M') { revenueMultiplier = 2.5; }
+            else if (revenue === '$5M - $10M') { revenueMultiplier = 5.0; }
+            else if (revenue === '$10M+') { revenueMultiplier = 10.0; }
+
+            // Helper to format currency
+            const fmtMoney = (val) => '$' + Math.round(val / 1000) + 'K';
             
             // Hide loading, show results
             document.getElementById('loadingState').style.display = 'none';
@@ -1177,46 +1200,62 @@
             if (score < 100) {
                 category = "Low Priority - Optimized Operations";
                 recommendation = `${userData.name}, your operations are already efficient! Your score of ${score}/400 indicates strong processes. AI could provide incremental improvements, but you're not losing significant time to inefficiency.`;
+                
+                const baseLow = 30000 * revenueMultiplier;
+                const baseHigh = 45000 * revenueMultiplier;
+                valueRange = `${fmtMoney(baseLow)}-${fmtMoney(baseHigh)} in annual optimization opportunities`;
+                
                 opportunities = [
-                    { title: 'Deploy a \'Knowledge Agent\'', description: 'AI-powered knowledge management system', roi: '$10K-15K/year' },
-                    { title: 'Deploy a \'Strategy Agent\'', description: 'Predictive insights for strategic planning', roi: '$8K-12K/year' }
+                    { title: 'Deploy a \'Knowledge Agent\'', description: 'AI-powered knowledge management system', roi: `${fmtMoney(10000 * revenueMultiplier)}-${fmtMoney(15000 * revenueMultiplier)}/year` },
+                    { title: 'Deploy a \'Strategy Agent\'', description: 'Predictive insights for strategic planning', roi: `${fmtMoney(8000 * revenueMultiplier)}-${fmtMoney(12000 * revenueMultiplier)}/year` }
                 ];
-                valueRange = "$30K-45K in annual optimization opportunities";
                 urgency = "moderate";
                 ctaText = "Explore Optimization Opportunities";
             } else if (score < 200) {
                 category = "Moderate Priority - Clear Opportunities";
                 recommendation = `${userData.name}, your score of ${score}/400 reveals meaningful AI opportunities at ${userData.company}. You're experiencing moderate inefficiency. Strategic AI implementation could deliver significant ROI.`;
+                
+                const baseLow = 110000 * revenueMultiplier;
+                const baseHigh = 165000 * revenueMultiplier;
+                valueRange = `${fmtMoney(baseLow)}-${fmtMoney(baseHigh)} in annual time and cost savings`;
+
                 opportunities = [
-                    { title: 'Deploy a \'Data Agent\'', description: 'Eliminate 50-75% of manual data work', roi: '$35K-50K/year' },
-                    { title: 'Deploy an \'Inbox Assistant\'', description: 'AI-powered response templates and routing', roi: '$20K-30K/year' },
-                    { title: 'Deploy a \'Content Agent\'', description: 'Automate content drafts and social posts', roi: '$25K-40K/year' }
+                    { title: 'Deploy a \'Data Agent\'', description: 'Eliminate 50-75% of manual data work', roi: `${fmtMoney(35000 * revenueMultiplier)}-${fmtMoney(50000 * revenueMultiplier)}/year` },
+                    { title: 'Deploy an \'Inbox Assistant\'', description: 'AI-powered response templates and routing', roi: `${fmtMoney(20000 * revenueMultiplier)}-${fmtMoney(30000 * revenueMultiplier)}/year` },
+                    { title: 'Deploy a \'Content Agent\'', description: 'Automate content drafts and social posts', roi: `${fmtMoney(25000 * revenueMultiplier)}-${fmtMoney(40000 * revenueMultiplier)}/year` }
                 ];
-                valueRange = "$110K-165K in annual time and cost savings";
                 urgency = "high";
                 ctaText = "Book Your Systems Audit";
             } else if (score < 300) {
                 category = "High Priority - Significant ROI Potential";
                 recommendation = `${userData.name}, your score of ${score}/400 indicates ${userData.company} has substantial AI opportunities. Your manual processes are creating significant operational drag. You could reclaim hundreds of hours per month.`;
+                
+                const baseLow = 245000 * revenueMultiplier;
+                const baseHigh = 360000 * revenueMultiplier;
+                valueRange = `${fmtMoney(baseLow)}-${fmtMoney(baseHigh)} in annual value creation`;
+
                 opportunities = [
-                    { title: 'Deploy an \'Operations Agent\'', description: 'End-to-end process automation saving 15-20 hours/week', roi: '$75K-100K/year' },
-                    { title: 'Deploy a \'Finance Agent\'', description: 'Automated data extraction and reporting', roi: '$40K-60K/year' },
-                    { title: 'Deploy a \'Content Agent\'', description: 'Automate content creation and scheduling', roi: '$50K-75K/year' },
-                    { title: 'Deploy a \'Quality Agent\'', description: 'Automated error detection and correction', roi: '$45K-70K/year' }
+                    { title: 'Deploy an \'Operations Agent\'', description: 'End-to-end process automation saving 15-20 hours/week', roi: `${fmtMoney(75000 * revenueMultiplier)}-${fmtMoney(100000 * revenueMultiplier)}/year` },
+                    { title: 'Deploy a \'Finance Agent\'', description: 'Automated data extraction and reporting', roi: `${fmtMoney(40000 * revenueMultiplier)}-${fmtMoney(60000 * revenueMultiplier)}/year` },
+                    { title: 'Deploy a \'Content Agent\'', description: 'Automate content creation and scheduling', roi: `${fmtMoney(50000 * revenueMultiplier)}-${fmtMoney(75000 * revenueMultiplier)}/year` },
+                    { title: 'Deploy a \'Quality Agent\'', description: 'Automated error detection and correction', roi: `${fmtMoney(45000 * revenueMultiplier)}-${fmtMoney(70000 * revenueMultiplier)}/year` }
                 ];
-                valueRange = "$245K-360K in annual value creation";
                 urgency = "urgent";
                 ctaText = "Schedule Urgent Systems Audit";
             } else {
                 category = "Critical Priority - Transformational Impact";
                 recommendation = `${userData.name}, your score of ${score}/400 reveals ${userData.company} is experiencing severe operational inefficiency. You are losing significant revenue annually to manual processes, errors, and wasted time. AI implementation is essential for competitive survival.`;
+                
+                const baseLow = 550000 * revenueMultiplier;
+                const baseHigh = 800000 * revenueMultiplier;
+                valueRange = `${fmtMoney(baseLow)}-${fmtMoney(baseHigh)}+ in annual value creation`;
+
                 opportunities = [
-                    { title: 'Deploy a \'Board of AI Advisors\'', description: 'AI-driven workflow transformation across departments', roi: '$150K-200K/year' },
-                    { title: 'Deploy a \'Data Agent\'', description: 'End-to-end business process automation', roi: '$100K-150K/year' },
-                    { title: 'Deploy an \'Operations Agent\'', description: 'Centralized AI system managing routine tasks', roi: '$80K-120K/year' },
-                    { title: 'Deploy a \'Content Agent\'', description: 'Fully automate content research, creation, and publishing', roi: '$70K-110K/year' }
+                    { title: 'Deploy a \'Board of AI Advisors\'', description: 'AI-driven workflow transformation across departments', roi: `${fmtMoney(150000 * revenueMultiplier)}-${fmtMoney(200000 * revenueMultiplier)}/year` },
+                    { title: 'Deploy a \'Data Agent\'', description: 'End-to-end business process automation', roi: `${fmtMoney(100000 * revenueMultiplier)}-${fmtMoney(150000 * revenueMultiplier)}/year` },
+                    { title: 'Deploy an \'Operations Agent\'', description: 'Centralized AI system managing routine tasks', roi: `${fmtMoney(80000 * revenueMultiplier)}-${fmtMoney(120000 * revenueMultiplier)}/year` },
+                    { title: 'Deploy a \'Content Agent\'', description: 'Fully automate content research, creation, and publishing', roi: `${fmtMoney(70000 * revenueMultiplier)}-${fmtMoney(110000 * revenueMultiplier)}/year` }
                 ];
-                valueRange = "$550K-800K+ in annual value creation";
                 urgency = "critical";
                 ctaText = "Get Emergency Systems Audit Now";
             }
@@ -1289,22 +1328,23 @@
                 <div class="recommendation-card">
                     <h4>💰 Estimated Potential Value:</h4>
                     <p><strong>${valueRange}</strong></p>
-                    <p style="margin-top:15px">Based on ${userData.company}'s current operations (${employeeCount} employees) and typical ROI from AI implementation in similar businesses, we estimate you could capture this value through strategic AI adoption.</p>
+                    <p style="margin-top:15px">Based on ${userData.company}'s revenue range (${revenue}) and typical ROI from AI implementation in similar businesses, we estimate you could capture this value through strategic AI adoption.</p>
                 </div>
                 
-                ${generateScoreBasedInsights(score)}
+                ${generateScoreBasedInsights(score, revenueMultiplier, fmtMoney)}
                 
                 <div class="cta-box">
                     <div class="cta-content">
                         <h3>Ready to Unlock These Opportunities?</h3>
-                        <p>Your AI agents are ready for deployment. Book your 1-on-1 AI Systems Audit ($497) with Tré Wright to get your detailed implementation roadmap.</p>
+                        <p>Your AI agents are ready for deployment. Book your 1-on-1 AI Systems Audit (<span style="text-decoration: line-through; color: #999;">$497</span> <span style="color: #00D13A; font-weight: bold;">$97</span>) with Tré Wright to get your detailed implementation roadmap.</p>
                         
                         <div style="margin: 30px 0; text-align: center;">
-                          <iframe src="https://meet.brevo.com/tre-wright/ai-readiness-audit" width="100%" height="850" style="border-radius:12px; border:1px solid #E0E0E0; box-shadow:0 8px 32px rgba(0,0,0,0.06);" allowtransparency="true"></iframe>
-                          <noscript>
-                            <a href="https://meet.brevo.com/tre-wright/ai-readiness-audit" target="_blank" style="display: inline-block; background: #00D13A; color: white; font-weight: bold; border-radius: 10px; font-size: 1.25rem; padding: 22px 48px; box-shadow: 0 4px 15px rgba(0,0,0,0.13); text-decoration: none;">Book Your 1-on-1 AI Systems Audit</a>
-                          </noscript>
+                            <iframe src="https://meet.brevo.com/tre-wright/ai-readiness-audit" width="100%" height="850" style="border-radius:12px; border:1px solid #E0E0E0; box-shadow:0 8px 32px rgba(0,0,0,0.06);" allowtransparency="true"></iframe>
+                            <noscript>
+                                <a href="https://meet.brevo.com/tre-wright/ai-readiness-audit" target="_blank" style="display: inline-block; background: #00D13A; color: white; font-weight: bold; border-radius: 10px; font-size: 1.25rem; padding: 22px 48px; box-shadow: 0 4px 15px rgba(0,0,0,0.13); text-decoration: none;">Book Your 1-on-1 AI Systems Audit</a>
+                            </noscript>
                         </div>
+
                         <div class="action-buttons" style="margin-top: 25px;">
                             <button onclick="window.print()" class="action-btn secondary-action">📄 Download Report</button>
                             <button onclick="shareResults()" class="action-btn secondary-action">📤 Share Results</button>
@@ -1325,7 +1365,7 @@
         }
 
         // Generate Score-Based Implementation Insights
-        function generateScoreBasedInsights(score) {
+        function generateScoreBasedInsights(score, multiplier, fmt) {
             let insights = [];
             
             if (score < 75) {
@@ -1334,17 +1374,17 @@
                     {
                         title: "🎯 Quick Win: Process Documentation",
                         description: "Even efficient operations benefit from AI-powered knowledge management. Consider automated documentation systems to capture institutional knowledge and reduce onboarding time.",
-                        impact: "15-20% faster onboarding for new team members"
+                        impact: `15-20% faster onboarding`
                     },
                     {
                         title: "📊 Strategic Opportunity: Predictive Analytics",
                         description: "Your strong foundation makes you ideal for advanced analytics. Use AI to forecast trends, predict maintenance needs, or optimize resource allocation before issues arise.",
-                        impact: "10-15% improvement in strategic decision-making"
+                        impact: `10-15% better decisions`
                     },
                     {
                         title: "💡 Competitive Edge: Customer Intelligence",
                         description: "Leverage AI to analyze customer behavior patterns, personalize communications, and identify upsell opportunities your competitors are missing.",
-                        impact: "$15K-25K in additional annual revenue per sales rep"
+                        impact: `${fmt(15000 * multiplier)}-${fmt(25000 * multiplier)} revenue/rep`
                     }
                 ];
             } else if (score < 150) {
@@ -1353,17 +1393,17 @@
                     {
                         title: "⚡ Quick Win: Email & Communication Automation",
                         description: "Start with automated email categorization, template-based responses for common inquiries, and smart routing. These deliver immediate ROI and build team confidence in AI tools.",
-                        impact: "Save 5-10 hours per week per team member"
+                        impact: "Save 5-10 hours/week per person"
                     },
                     {
                         title: "🔄 High-Impact: Workflow Automation",
                         description: "Map your 3-5 most repetitive processes and implement AI-powered automation. Focus on data entry, report generation, and status updates first.",
-                        impact: "Reduce process time by 40-60% within 90 days"
+                        impact: "Reduce process time by 40-60%"
                     },
                     {
                         title: "📈 Revenue Opportunity: Sales Intelligence",
                         description: "Deploy AI to analyze call recordings, suggest next-best actions, and automatically update your CRM. This reallocates time from admin work to revenue generation.",
-                        impact: "15-25% increase in sales productivity"
+                        impact: "15-25% sales productivity bump"
                     }
                 ];
             } else if (score < 225) {
@@ -1372,17 +1412,17 @@
                     {
                         title: "🚀 Critical First Step: Process Mapping",
                         description: "Before implementing AI, map your current workflows to identify the highest-impact automation opportunities. Start with processes consuming 10+ hours weekly per employee.",
-                        impact: "Ensures you tackle the right problems first"
+                        impact: "Ensures you tackle right problems"
                     },
                     {
                         title: "💰 Highest ROI: Data Integration & Automation",
                         description: "Your biggest wins will come from eliminating manual data movement between systems. Implement automated data extraction, validation, and synchronization across your tech stack.",
-                        impact: "Reclaim 15-20 hours per week per employee"
+                        impact: "Reclaim 15-20 hours/week"
                     },
                     {
                         title: "🎯 Strategic Priority: Quality & Consistency",
                         description: "With high error rates from manual processes, focus AI on quality control, automated validation, and standardized workflows. This prevents costly mistakes and improves customer satisfaction.",
-                        impact: "Reduce error-related costs by 60-80%"
+                        impact: "Reduce error costs by 60-80%"
                     }
                 ];
             } else {
@@ -1391,17 +1431,17 @@
                     {
                         title: "🚨 Urgent: Quick Wins Build Momentum",
                         description: "Don't try to fix everything at once. Identify ONE process costing 20+ hours weekly and automate it completely within 30 days. Use this success to secure buy-in for larger initiatives.",
-                        impact: "Prove ROI fast and build organizational confidence"
+                        impact: "Prove ROI fast"
                     },
                     {
                         title: "🔥 Critical Focus: End-to-End Automation",
                         description: "Your operational drag is severe. Prioritize complete workflow automation for customer onboarding, order processing, or reporting. These transformations deliver 10x ROI within 6 months.",
-                        impact: "Eliminate 30-40 hours of manual work per week"
+                        impact: "Eliminate 30-40 hours manual work/week"
                     },
                     {
                         title: "⚙️ Foundation: Intelligent Operations Platform",
                         description: "Consider implementing a centralized AI operations hub that manages routine tasks, provides real-time insights, and orchestrates your entire workflow. This is transformational, not incremental.",
-                        impact: "$500K-800K+ in annual value through efficiency gains"
+                        impact: `${fmt(500000 * multiplier)}+ value creation`
                     }
                 ];
             }
