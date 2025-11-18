@@ -921,7 +921,7 @@
             const container = document.getElementById('questionsContainer');
             let html = '';
             
-            // 1. RENDER COMPANY INFO FIRST (As requested)
+            // 1. RENDER COMPANY INFO FIRST
             html += '<div class="question-section"><h3>1. Company Profile & Context</h3>';
             assessmentConfig.userInfo.forEach(field => {
                 html += renderUserField(field);
@@ -1078,8 +1078,6 @@
         // Update Progress Bar
         function updateProgress() {
             const totalQuestions = assessmentConfig.questions.length;
-            // NOTE: With user info now first, questions aren't answered yet, so this works fine.
-            // We track progress based on RADIO questions selected.
             const answeredQuestions = Object.keys(assessmentState.selectedAnswers).length;
             const progress = (answeredQuestions / totalQuestions) * 100;
             
@@ -1178,7 +1176,6 @@
             
             // Revenue Multiplier Logic
             let revenueMultiplier = 1;
-            let revenueLabel = "Baseline";
             
             if (revenue === '< $500K') { revenueMultiplier = 0.5; }
             else if (revenue === '$500K - $1M') { revenueMultiplier = 1.0; }
@@ -1339,12 +1336,11 @@
                         <p>Your AI agents are ready for deployment. Book your 1-on-1 AI Systems Audit (<span style="text-decoration: line-through; color: #999;">$497</span> <span style="color: #00D13A; font-weight: bold;">$97</span>) with Tré Wright to get your detailed implementation roadmap.</p>
                         
                         <div style="margin: 30px 0; text-align: center;">
-                            <iframe src="https://meet.brevo.com/tre-wright/ai-readiness-audit" width="100%" height="850" style="border-radius:12px; border:1px solid #E0E0E0; box-shadow:0 8px 32px rgba(0,0,0,0.06);" allowtransparency="true"></iframe>
-                            <noscript>
-                                <a href="https://meet.brevo.com/tre-wright/ai-readiness-audit" target="_blank" style="display: inline-block; background: #00D13A; color: white; font-weight: bold; border-radius: 10px; font-size: 1.25rem; padding: 22px 48px; box-shadow: 0 4px 15px rgba(0,0,0,0.13); text-decoration: none;">Book Your 1-on-1 AI Systems Audit</a>
-                            </noscript>
+                          <iframe src="https://meet.brevo.com/tre-wright/ai-readiness-audit" width="100%" height="850" style="background: white; border-radius:12px; border:1px solid #E0E0E0; box-shadow:0 8px 32px rgba(0,0,0,0.06);" allowtransparency="true"></iframe>
+                          <noscript>
+                            <a href="https://meet.brevo.com/tre-wright/ai-readiness-audit" target="_blank" style="display: inline-block; background: #00D13A; color: white; font-weight: bold; border-radius: 10px; font-size: 1.25rem; padding: 22px 48px; box-shadow: 0 4px 15px rgba(0,0,0,0.13); text-decoration: none;">Book Your 1-on-1 AI Systems Audit</a>
+                          </noscript>
                         </div>
-
                         <div class="action-buttons" style="margin-top: 25px;">
                             <button onclick="window.print()" class="action-btn secondary-action">📄 Download Report</button>
                             <button onclick="shareResults()" class="action-btn secondary-action">📤 Share Results</button>
