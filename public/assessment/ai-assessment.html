@@ -29,13 +29,10 @@
         .container {
             max-width: 900px;
             margin: 0 auto;
-            <div style="margin: 30px 0; text-align: center;">
-  <iframe src="https://meet.brevo.com/tre-wright/ai-readiness-audit" width="100%" height="850" style="border-radius:12px; border:1px solid #E0E0E0; box-shadow:0 8px 32px rgba(0,0,0,0.06);" allowtransparency="true"></iframe>
-  <noscript>
-    <a href="https://meet.brevo.com/tre-wright/ai-readiness-audit" target="_blank" style="display: inline-block; background: #00D13A; color: white; font-weight: bold; border-radius: 10px; font-size: 1.25rem; padding: 22px 48px; box-shadow: 0 4px 15px rgba(0,0,0,0.13); text-decoration: none;">Book Your 1-on-1 AI Systems Audit</a>
-  </noscript>
-</div>
-box-shadow: var(--card-shadow);
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: var(--card-shadow);
             position: relative;
         }
         
@@ -1299,17 +1296,26 @@ box-shadow: var(--card-shadow);
                 
                 <div class="cta-box">
                     <div class="cta-content">
+                        <h3>Ready to Unlock These Opportunities?</h3>
+                        <p>Your AI agents are ready for deployment. Book your 1-on-1 AI Systems Audit ($497) with Tré Wright to get your detailed implementation roadmap.</p>
+                        
+                        <div style="margin: 30px 0; text-align: center;">
+                          <iframe src="https://meet.brevo.com/tre-wright/ai-readiness-audit" width="100%" height="850" style="border-radius:12px; border:1px solid #E0E0E0; box-shadow:0 8px 32px rgba(0,0,0,0.06);" allowtransparency="true"></iframe>
+                          <noscript>
+                            <a href="https://meet.brevo.com/tre-wright/ai-readiness-audit" target="_blank" style="display: inline-block; background: #00D13A; color: white; font-weight: bold; border-radius: 10px; font-size: 1.25rem; padding: 22px 48px; box-shadow: 0 4px 15px rgba(0,0,0,0.13); text-decoration: none;">Book Your 1-on-1 AI Systems Audit</a>
+                          </noscript>
+                        </div>
+                        <div class="action-buttons" style="margin-top: 25px;">
+                            <button onclick="window.print()" class="action-btn secondary-action">📄 Download Report</button>
+                            <button onclick="shareResults()" class="action-btn secondary-action">📤 Share Results</button>
+                        </div>
+                        
                         <div class="urgency-text">
                             ${urgency === 'critical' ? '🚨 Critical Priority: Companies at your score level see 15-25% productivity loss annually' : 
                               urgency === 'urgent' ? '⚡ High Priority: Act now to prevent further efficiency losses' :
                               urgency === 'high' ? '⏰ Time Sensitive: Competitors are likely already implementing AI solutions' :
                               '✓ Good foundation for incremental improvements'}
                         </div>
-
-                <div style="text-align: center; margin: 30px 0 40px 0;">                    <a href="https://meet.brevo.com/tre-wright/ai-readiness-audit" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 24px 48px; background: linear-gradient(135deg, #0037FF 0%, #667eea 100%); color: white; text-decoration: none; border-radius: 16px; font-size: 20px; font-weight: 700; box-shadow: 0 20px 60px rgba(0,55,255,0.3); transition: all 0.3s ease; border: none;">
-                    <a href="https://meet.brevo.com/tre-wright/ai-readiness-audit" target="_blank" style="display: inline-block; background: #0037FF; color: white; padding: 18px 48px; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 18px; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 12px rgba(0, 55, 255, 0.3);">📅 Book My AI Audit</a>1301
-                    </a>
-                </div>                        
                     </div>
                 </div>
             `;
@@ -1449,7 +1455,7 @@ box-shadow: var(--card-shadow);
             // !!! WEBHOOK URL IS NOW LIVE !!!
             const webhookURL = 'https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjYwNTY0MDYzMTA0MzM1MjZlNTUzMjUxMzQi_pc'; 
             
-            if (webhookURL === 'httpsB://connect.pabbly.com/YOUR-WEBHOOK-URL-HERE') {
+            if (webhookURL === 'https://connect.pabbly.com/YOUR-WEBHOOK-URL-HERE') {
                 console.warn('Webhook URL not set! Data will not be saved.');
                 return; // Don't try to send if the URL is the placeholder
             }
@@ -1469,5 +1475,4 @@ box-shadow: var(--card-shadow);
         document.addEventListener('DOMContentLoaded', initializeAssessment);
     </script>
 </body>
-    </html>
 </html>
